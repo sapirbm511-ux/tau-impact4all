@@ -1,0 +1,48 @@
+Create a standalone printable QR code page as a file called `qr.html`.
+
+## The QR code must point to this exact URL:
+https://sapirbm511-ux.github.io/tau-impact.4.all
+
+## Design requirements:
+- Single HTML file, no external dependencies except QRCode.js from CDN
+- Import QRCode.js: 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+- White background, centered content, A4 print-friendly
+- Hebrew RTL text (font: Heebo from Google Fonts)
+- Brand color: #673ab7 (purple)
+
+## Page content (top to bottom):
+1. Logo text: "TAU Social Impact 4 All" in brand purple, large and bold
+2. QR code: 300×300px, colorDark="#673ab7", colorLight="#ffffff", 
+   correctLevel=H
+3. Instruction text: "סרקו לגילוי הזדמנויות מעורבות חברתית"
+4. Event details:
+   📅 יום שני, 29.6.2026
+   🕐 11:00–14:30  
+   📍 קמפוס אוניברסיטת תל אביב
+5. The URL printed below in small text (direction: ltr):
+   https://sapirbm511-ux.github.io/tau-impact.4.all
+6. Print button: "🖨️ הדפסה" — styled in purple, calls window.print()
+
+## QR code generation:
+new QRCode(document.getElementById("qrcode"), {
+  text: "https://sapirbm511-ux.github.io/tau-impact.4.all",
+  width: 300,
+  height: 300,
+  colorDark: "#673ab7",
+  colorLight: "#ffffff",
+  correctLevel: QRCode.CorrectLevel.H
+});
+
+## Print styles:
+@media print {
+  .no-print { display: none !important; }
+  body { margin: 0; padding: 20px; }
+}
+
+## After creating qr.html:
+Also upload it to the GitHub repo at:
+https://github.com/sapirbm511-ux/tau-impact.4.all
+
+The QR page will then be accessible at:
+https://sapirbm511-ux.github.io/tau-impact.4.all/qr.html
